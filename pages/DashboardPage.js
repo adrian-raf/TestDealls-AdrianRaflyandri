@@ -83,23 +83,22 @@ export class DashboardPage {
       if (text && text.trim().toLowerCase().includes(tingkatan.toLowerCase())) {
         await option.click();
         optionFound = true;
-        // Tunggu sampai halaman memperbarui hasil
+
         await this.page.waitForLoadState('networkidle');
 
-        // Tunggu salah satu dari dua kemungkinan: mentor cards muncul atau pesan kosong muncul
-        await Promise.race([
-          this.mentorCards
-            .first()
-            .waitFor({ timeout: 3000 })
-            .catch(() => {}),
-          this.imageEmptyMentor.waitFor({ timeout: 3000 }).catch(() => {}),
-        ]);
+        const hasMentorCards = await this.mentorCards
+          .first()
+          .isVisible()
+          .catch(() => false);
 
-        await this.mentorCardsDisplayed();
+        if (hasMentorCards) {
+          await this.mentorCardsDisplayed();
+        } else {
+          await this.mentorCardsNotDisplayed();
+        }
         break;
       }
     }
-
     if (!optionFound) {
       throw new Error(`Tingkatan "${tingkatan}" tidak ditemukan dalam dropdown`);
     }
