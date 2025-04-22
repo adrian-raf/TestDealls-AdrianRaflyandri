@@ -19,7 +19,7 @@ This repository contains end-to-end (E2E) automated tests for key functionalitie
 ## 🛠️ Tech Stack
 
 - **Automation Framework**: Playwright
-- **Language**: JavaScript (Node.js)
+- **Language**: JavaScript 
 - **Test Runner**: Playwright Test
 - **CI/CD**: GitHub Actions
 
@@ -33,22 +33,34 @@ Node.js (version 14 or higher)
    git clone https://github.com/adrian-raf/TestDealls-AdrianRaflyandri.git
    ```
 
-3. Install dependencies:
+2. Install dependencies:
+   ```bash
    npm install
+   ```
 
-4. Install Playwright browsers:
+3. Install Playwright browsers:
+   ```bash
    npx playwright install
+   ```
 
 🧪 Running Tests
 
 - Run all tests:
+  ```bash
   npx playwright test
+  ```
 
   - Run a specific test file:
+    ```bash
     npx playwright test tests/{file.js}
+    ```
 
 - Run tests in headed mode (with browser UI):
+  ```bash
   npx playwright test --headed
+  ```
 
 - View HTML report after tests:
+  ```bash
   npx playwright show-report
+  ```
