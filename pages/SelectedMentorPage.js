@@ -76,6 +76,7 @@ export class SelectedMentorPage {
       ` Halo semua salam kenal semoga saya bisa lolos tes ini, tapi kalalu tidak lolos ya.. ya jangan laa, pengen nya lolos ehe
        Hidup Jokowi!!! *Gebrak Meja`
     );
+    await expect(this.nextButtonModalContent).toBeEnabled();
     await this.nextButtonModalContent.click();
   };
 

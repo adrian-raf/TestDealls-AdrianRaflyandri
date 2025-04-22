@@ -21,7 +21,8 @@ export class DashboardPage {
   }
 
   mentorCardsDisplayed = async () => {
-    await this.mentorCards.first().waitFor({ timeout: 2000 });
+    await this.page.waitForLoadState('networkidle');
+    await this.mentorCards.first().waitFor({ timeout: 7000 });
 
     const count = await this.mentorCards.count();
     expect(count).toBeGreaterThan(0);
