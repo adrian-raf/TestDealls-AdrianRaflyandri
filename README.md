@@ -7,12 +7,13 @@ This repository contains end-to-end (E2E) automated tests for key functionalitie
 - Login as mentee
 - Login as mentor
 
-- **Register**
+  **Register**
 
   - Register as a mentee
   - Register schedule for mentoring
 
-- **Search Mentor**
+  **Search Mentor**
+
   - Select and view mentor details
 
 ## 🛠️ Tech Stack
