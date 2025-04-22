@@ -29,12 +29,14 @@ Node.js (version 14 or higher)
 
 1. Installation
    Clone the repository:
+   ```bash
    git clone https://github.com/adrian-raf/TestDealls-AdrianRaflyandri.git
+   ```
 
-2. Install dependencies:
+3. Install dependencies:
    npm install
 
-3. Install Playwright browsers:
+4. Install Playwright browsers:
    npx playwright install
 
 🧪 Running Tests
