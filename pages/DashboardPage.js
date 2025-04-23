@@ -21,6 +21,7 @@ export class DashboardPage {
   }
 
   mentorCardsDisplayed = async () => {
+    await this.page.waitForLoadState('networkidle');
     await this.mentorCards.first().waitFor({ timeout: 7000 });
 
     const count = await this.mentorCards.count();
@@ -35,6 +36,7 @@ export class DashboardPage {
 
   searchMentorByName = async (name) => {
     await this.searchMentorInput.fill(name);
+    await this.page.waitForLoadState('networkidle');
 
     const hasMentorCards = await this.mentorCards
       .first()
@@ -70,6 +72,8 @@ export class DashboardPage {
     await this.tingkatanButton.click();
     await expect(this.resetTingkatanButton).toBeHidden();
 
+    await this.page.waitForLoadState('networkidle');
+
     const count = await this.tingkatanDropdown.count();
     let optionFound = false;
 
@@ -80,6 +84,8 @@ export class DashboardPage {
       if (text && text.trim().toLowerCase().includes(tingkatan.toLowerCase())) {
         await option.click();
         optionFound = true;
+
+        await this.page.waitForLoadState('networkidle');
 
         const hasMentorCards = await this.mentorCards
           .first()
