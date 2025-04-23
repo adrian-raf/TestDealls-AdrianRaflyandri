@@ -1,12 +1,13 @@
 import { test } from '@playwright/test';
-import { LoginPageMentee } from '../pages/LoginPageMentee';
+import { LoginPageMenteePage } from '../pages/LoginPageMenteePage';
+
 test.beforeEach(async ({ page }) => {
   await page.goto('/sign-in');
 });
 
 test.describe('Login Mentee', () => {
-  test('Success login', async ({ page }) => {
-    const loginPageMentee = new LoginPageMentee(page);
+  test('Success login as Mentee', async ({ page }) => {
+    const loginPageMentee = new LoginPageMenteePage(page);
     await loginPageMentee.login();
   });
 });

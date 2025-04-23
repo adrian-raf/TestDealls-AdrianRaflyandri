@@ -1,13 +1,13 @@
 import { test } from '@playwright/test';
-import { LoginPageMentor } from '../pages/LoginPageMentor';
+import { LoginPageMentorPage } from '../pages/LoginPageMentorPage';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/sign-in');
 });
 
-test.describe('Login Mentee', () => {
-  test('Success login', async ({ page }) => {
-    const loginPageMentor = new LoginPageMentor(page);
+test.describe('Login Mentor', () => {
+  test('Success login as Mentor', async ({ page }) => {
+    const loginPageMentor = new LoginPageMentorPage(page);
     await loginPageMentor.login();
   });
 });

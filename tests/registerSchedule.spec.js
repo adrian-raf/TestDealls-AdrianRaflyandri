@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 test.describe('Register schedule for mentoring without login', () => {
   test('Success register schedule with valid data', async ({ page }) => {
     const dashboardPage = new DashboardPage(page);
-    await dashboardPage.searchMentorByName('jenny');
+    await dashboardPage.searchMentorByName('Jenny');
 
     const registerSchedulePage = new SelectedMentorPage(page);
     await registerSchedulePage.scheduleAvailable();

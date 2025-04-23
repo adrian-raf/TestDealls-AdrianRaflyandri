@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import { menteeAccount } from '../data/dataAccount';
 
-export class LoginPageMentee {
+export class LoginPageMenteePage {
   constructor(page) {
     this.page = page;
     this.inputEmail = page.locator('#basic_email');
