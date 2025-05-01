@@ -45,7 +45,7 @@ export class DashboardPage {
 
     if (hasMentorCards) {
       await this.mentorCardsDisplayed();
-      const matchedCards = this.mentorCards.filter({ hasText: name });
+      const matchedCards = await this.mentorCards.filter({ hasText: name });
       const matchedCount = await matchedCards.count();
       expect(matchedCount).toBeGreaterThan(0);
       await matchedCards.first().click();
@@ -55,7 +55,7 @@ export class DashboardPage {
   };
 
   searchByCareerCategory = async (text) => {
-    const careerOption = this.page.locator('//div[contains(@class, "swiper-slide")]', {
+    const careerOption = await this.page.locator('//div[contains(@class, "swiper-slide")]', {
       hasText: text,
     });
     await careerOption.click();
@@ -64,7 +64,7 @@ export class DashboardPage {
 
   searchByAcademyCategory = async () => {
     await this.academicLevel.click();
-    const academicMenu = this.page.locator('//div[contains(@class, "swiper-slide")]');
+    const academicMenu = await this.page.locator('//div[contains(@class, "swiper-slide")]');
     await expect(academicMenu.filter({ hasText: 'Beasiswa S2' })).toBeVisible();
   };
 
@@ -78,7 +78,7 @@ export class DashboardPage {
     let optionFound = false;
 
     for (let i = 0; i < count; i++) {
-      const option = this.tingkatanDropdown.nth(i);
+      const option = await this.tingkatanDropdown.nth(i);
       const text = await option.textContent();
 
       if (text && text.trim().toLowerCase().includes(tingkatan.toLowerCase())) {
