@@ -28,7 +28,7 @@ test.describe('Register Mentee', () => {
 
       await registerMentee.fillWa(createNewAccount.wa);
       await registerMentee.fillEmail(createNewAccount.email);
-      await registerMentee.chooseCampus('university of indonesia');
+      await registerMentee.chooseCampus('University of Indonesia');
       await registerMentee.chooseExpLevel('Freshgrad');
       await registerMentee.expectNextButtonEnabled();
       await buttonClickByText(page, 'Selanjutnya');
