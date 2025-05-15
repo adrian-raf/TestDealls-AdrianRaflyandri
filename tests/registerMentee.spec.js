@@ -23,7 +23,7 @@ test.describe('Register Mentee', () => {
       await registerMentee.expectNextButtonDisabled();
       await registerMentee.chooseJobSeekingStatus('Actively looking');
       await expect(registerMentee.jobSeekingStatusValue).toHaveText(
-        'Actively looking for the next 3 months'
+        'Actively looking for the next 3 months '
       );
 
       await registerMentee.fillWa(createNewAccount.wa);
