@@ -1,5 +1,3 @@
-import { expect } from '@playwright/test';
-
 export async function selectDropdownByText(page, text) {
   await page.locator('div.ant-select-item-option', { hasText: text }).click();
 }
@@ -14,8 +12,7 @@ export const fillAndSelectDropdown = async ({ page, inputLocator, text }) => {
   await inputLocator.clear();
   await inputLocator.fill(text);
 
-  // Tunggu dropdown muncul
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1000);
 
   // Dapatkan semua opsi dalam dropdown
   const options = page.locator('.ant-select-item-option');
@@ -29,6 +26,7 @@ export const fillAndSelectDropdown = async ({ page, inputLocator, text }) => {
   // Cari opsi yang cocok persis dengan text
   let exactMatchFound = false;
   let addOptionFound = false;
+  let addOptionIndex = 0;
 
   for (let i = 0; i < count; i++) {
     const optionText = await options.nth(i).innerText();
@@ -43,7 +41,6 @@ export const fillAndSelectDropdown = async ({ page, inputLocator, text }) => {
     // Cek apakah ada opsi "Add"
     if (optionText.includes(`Add "${text}"`)) {
       addOptionFound = true;
-      // Simpan indeks tapi jangan klik dulu, prioritaskan exact match
       addOptionIndex = i;
     }
   }

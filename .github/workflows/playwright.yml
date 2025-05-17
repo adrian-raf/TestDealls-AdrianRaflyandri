@@ -18,13 +18,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: |
-          # Set environment variables untuk meningkatkan stabilitas test
-          export PLAYWRIGHT_TIMEOUT=60000
-          export CI=true
-
-          # Jalankan test dengan retry dan meningkatkan timeout 
-          npx playwright test --retries=2 --timeout=60000
+        run: npx playwright test
         env:
           PLAYWRIGHT_VIEWPORT_WIDTH: 1280
           PLAYWRIGHT_VIEWPORT_HEIGHT: 720
